@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attestation QR Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="phone-shell">
+      <header class="browser-bar">
+        <div class="status-row">
+          <span class="time">1:35</span>
+          <div class="status-icons">
+            <span class="network">LTE</span>
+            <span class="bars">
+              <span></span><span></span><span></span><span></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="nav-row">
+          <button class="icon-button home" aria-label="Home">⌂</button>
+          <div class="site-pill">
+            <span class="info-dot">i</span>
+            <span class="site-name">rify-attestation.com</span>
+          </div>
+          <div class="action-group">
+            <button class="icon-button add" aria-label="Add">＋</button>
+            <span class="badge">4</span>
+            <button class="icon-button menu" aria-label="Menu">⋮</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="app-card">
+        <div class="doc-surface">
+          <div class="upload-panel">
+            <label class="upload-box" for="fileInput">
+              <input id="fileInput" type="file" accept="image/*" />
+              <span class="upload-label">Upload attestation image</span>
+              <small>PNG, JPG, GIF, WEBP</small>
+            </label>
+
+            <div class="controls">
+              <textarea
+                id="recordText"
+                rows="3"
+                placeholder="Optional: add attestation number, name, or record details"
+              ></textarea>
+              <button id="generateBtn" type="button">Generate QR</button>
+            </div>
+          </div>
+
+          <div class="qr-panel hidden" id="qrPanel">
+            <div class="preview-wrap">
+              <img id="previewImage" alt="Uploaded attestation preview" />
+            </div>
+            <div class="qr-box">
+              <canvas id="qrCanvas" width="220" height="220"></canvas>
+            </div>
+            <div class="meta">
+              <div>
+                <label>Record</label>
+                <strong id="recordTitle">Attestation</strong>
+              </div>
+              <button id="downloadBtn" type="button">Download QR</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
